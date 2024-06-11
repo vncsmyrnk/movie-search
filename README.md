@@ -2,9 +2,9 @@
 ![Flask](https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 <br>
-![CI](https://github.com/Sistema-de-integracao-em-restaurante/api/actions/workflows/ci.yml/badge.svg)
-![Release](https://github.com/Sistema-de-integracao-em-restaurante/api/actions/workflows/release.yml/badge.svg)
-[![cov](https://sistema-de-integracao-em-restaurante.github.io/api/coverage.svg)](https://github.com/Sistema-de-integracao-em-restaurante/api/actions)
+![CI](https://github.com/vncsmyrnk/movie-search/actions/workflows/ci.yml/badge.svg)
+![Release](https://github.com/vncsmyrnk/movie-search/actions/workflows/release.yml/badge.svg)
+[![cov](https://vncsmyrnk.github.io/movie-search/coverage.svg)](https://github.com/vncsmyrnk/movie-search/actions)
 
 # Movie Search
 
