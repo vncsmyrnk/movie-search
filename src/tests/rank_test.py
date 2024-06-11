@@ -8,6 +8,7 @@ from search.text import preprocess_text
 
 
 def test_jaccard_similarity():
+    """Tests if jaccard algorithm is working as expected"""
     q = set(["to", "do", "be"])
 
     documents_test = [
@@ -31,13 +32,7 @@ def test_jaccard_similarity():
 
 
 def test_ranking():
-    documents_test = [
-        preprocess_text("this house is great example test"),
-        preprocess_text("other red sky my day is fine"),
-        preprocess_text("purple songs music fun"),
-        preprocess_text("computer tests are black and white"),
-    ]
-
+    """Tests if the ranking algorithm is working as expected"""
     q = "house black red"
     vocab_test = [
         "black",
@@ -129,3 +124,12 @@ def test_ranking():
         ),
         1,
     )
+
+
+def test_query_http_request(client):
+    """Tests if the web server is returning the expected query results"""
+    response = client.get("/api/query?q=music%20play")
+    assert response.status_code == 200
+    assert len(response.json) == 10
+    assert response.json[0]["movie_id"] == 3304
+    assert response.json[0]["score_jaccard"] == 0.4
