@@ -59,8 +59,7 @@ jobs:
         with:
           push: true
           build-args: |
-            RO_VERSION=${{ github.ref_name }}
-            DB_CON_STRING=${{ secrets.DB_CON_STRING_PROD }}
+            APP_VERSION=${{ github.ref_name }}
           tags: |
             ghcr.io/vncsmyrnk/movie-search:latest
             ghcr.io/vncsmyrnk/movie-search:${{ github.ref_name }}
