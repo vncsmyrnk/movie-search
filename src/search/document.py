@@ -6,6 +6,18 @@ def get_terms_from_document_index(
     return terms_doc
 
 
+def get_terms_from_documents_index(
+    vocab: list[str], index: list[list], docs: list[int]
+) -> list[str]:
+    """Returns the terms stored in the index for a document"""
+    docs = [None for i in range(len(docs))]
+    map(
+        lambda doc: docs[doc[1]].append(doc[0]),
+        [item for item in index if item[1] in docs],
+    )
+    return docs
+
+
 def get_tokens_from_document_index(
     vocab: list[str], index: list[list], doc: int
 ) -> list[str]:
