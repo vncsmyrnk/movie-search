@@ -2,8 +2,6 @@ import heapq
 from .text import preprocess_text
 from .document import (
     get_terms_id_from_tokens,
-    get_term_document_list_occurrence,
-    get_terms_from_document_index,
     get_terms_from_documents_index,
 )
 

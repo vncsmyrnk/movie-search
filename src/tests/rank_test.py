@@ -1,6 +1,8 @@
 from search.rank import (
     jaccard_similarity,
     query_rank_documents,
+)
+from search.document import (
     get_terms_from_document_index,
     get_terms_id_from_tokens,
 )
