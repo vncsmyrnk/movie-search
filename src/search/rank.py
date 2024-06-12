@@ -2,8 +2,7 @@ import heapq
 from .text import preprocess_text
 from .document import (
     get_terms_id_from_tokens,
-    get_term_document_list_occurrence,
-    get_terms_from_document_index,
+    get_terms_from_documents_index,
 )
 
 
@@ -26,17 +25,15 @@ def query_rank_documents(
     query_terms = set(get_terms_id_from_tokens(vocab, query_tokens))
 
     # Filter documents that contain the specific words in the query
-    term_doc_list = get_term_document_list_occurrence(vocab, index)
-    candidate_docs = set()
-    for token in query_terms:
-        if token in term_doc_list:
-            candidate_docs.update(term_doc_list[token])
+    candidate_docs = set([item[1] for item in index if item[0] in query_terms])
+
+    # Search all the relevant documents contents
+    candidate_docs = get_terms_from_documents_index(index, candidate_docs)
 
     # Calculate Jaccard similarity for candidate documents
     min_heap = []
-    for doc_id in candidate_docs:
-        doc_desc = get_terms_from_document_index(vocab, index, doc_id)
-        score = jaccard_similarity(query_terms, set(doc_desc))
+    for doc_id, doc_terms in candidate_docs.items():
+        score = jaccard_similarity(query_terms, set(doc_terms))
 
         # If the heap is smaller than top_n, add the new score
         if len(min_heap) < top_count:
