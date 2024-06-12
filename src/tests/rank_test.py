@@ -87,7 +87,7 @@ def test_ranking():
                     vocab_test, preprocess_text(q).split()
                 )
             ),
-            set(get_terms_from_document_index(vocab_test, index_test, 2)),
+            set(get_terms_from_document_index(index_test, 2)),
         ),
         2,
     )
@@ -98,7 +98,7 @@ def test_ranking():
                     vocab_test, preprocess_text(q).split()
                 )
             ),
-            set(get_terms_from_document_index(vocab_test, index_test, 0)),
+            set(get_terms_from_document_index(index_test, 0)),
         ),
         0,
     )
@@ -109,7 +109,7 @@ def test_ranking():
                     vocab_test, preprocess_text(q).split()
                 )
             ),
-            set(get_terms_from_document_index(vocab_test, index_test, 3)),
+            set(get_terms_from_document_index(index_test, 3)),
         ),
         3,
     )
@@ -120,7 +120,7 @@ def test_ranking():
                     vocab_test, preprocess_text(q).split()
                 )
             ),
-            set(get_terms_from_document_index(vocab_test, index_test, 1)),
+            set(get_terms_from_document_index(index_test, 1)),
         ),
         1,
     )

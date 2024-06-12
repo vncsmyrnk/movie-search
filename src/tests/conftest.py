@@ -1,5 +1,16 @@
 import pytest
 from server import build_app
+from search.file import read_index, read_vocab
+
+
+@pytest.fixture()
+def vocab():
+    return read_vocab()
+
+
+@pytest.fixture()
+def index():
+    return read_index()
 
 
 @pytest.fixture()

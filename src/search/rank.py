@@ -28,16 +28,14 @@ def query_rank_documents(
 
     # Filter documents that contain the specific words in the query
     candidate_docs = set([item[1] for item in index if item[0] in query_terms])
-    candidate_docs = get_terms_from_documents_index(
-        vocab, index, candidate_docs
-    )
+
+    # Search all the relevant documents contents
+    candidate_docs = get_terms_from_documents_index(index, candidate_docs)
 
     # Calculate Jaccard similarity for candidate documents
     min_heap = []
-    print(candidate_docs)
-    for doc_id, doc in enumerate(candidate_docs):
-        # doc_desc = get_terms_from_document_index(vocab, index, doc_id)
-        score = jaccard_similarity(query_terms, set(doc))
+    for doc_id, doc_terms in candidate_docs.items():
+        score = jaccard_similarity(query_terms, set(doc_terms))
 
         # If the heap is smaller than top_n, add the new score
         if len(min_heap) < top_count:
