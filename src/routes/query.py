@@ -31,6 +31,11 @@ def build_routes():
             }
             for item in ranking
         ]
+
+        # Free the heavy reviews file
+        del reviews
+        gc.collect()
+
         return jsonify(ranking_details)
 
     return bp
