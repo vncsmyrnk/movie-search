@@ -8,9 +8,20 @@
 
 # Movie Search
 
-API for searching movies by its synopsis
+API for searching movies by its synopsis. The movie data was gathered from [Metacritic](https://www.metacritic.com/), using a [*web crawler*](https://github.com/vncsmyrnk/moviescraper). A [reverse index](https://en.wikipedia.org/wiki/Reverse_index) was created based on the terms of the movies synopsis.
+
+The [Jaccard Index](https://en.wikipedia.org/wiki/Jaccard_index) was used to compute a score value assigned to each document according to specific queries. For each query, a ranking of the 10 most relevant movies is returned, taking into account the terms in the synopsis of each one.
 
 ## Run with docker
+
+```bash
+docker pull ghcr.io/vncsmyrnk/movie-search:latest
+docker run --rm \
+    -p 5000:5000 \
+    movie-search:latest
+```
+
+## Development
 
 ```bash
 docker run --rm -it \
