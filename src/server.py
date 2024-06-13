@@ -12,7 +12,7 @@ def build_app():
         r"/api/*": {
             "origins": [
                 "http://localhost:3000",
-                "https://sistema-de-integracao-em-restaurante.github.io",
+                "https://stephany-c.github.io",
             ],
             "allow_headers": "*",
             "expose_headers": "*",
